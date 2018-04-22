@@ -32,6 +32,9 @@ public class MainActivity extends AppCompatActivity implements CameraFragment.On
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
+    SavedItemsFragment savedItemsFragment;
+    CameraFragment cameraFragment;
+
     /**
      * The {@link ViewPager} that will host the section contents.
      */
@@ -52,6 +55,9 @@ public class MainActivity extends AppCompatActivity implements CameraFragment.On
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
+
+        savedItemsFragment = new SavedItemsFragment();
+        cameraFragment = new CameraFragment();
 
     }
 
@@ -90,7 +96,6 @@ public class MainActivity extends AppCompatActivity implements CameraFragment.On
     }
 
 
-    final SavedItemsFragment savedItemsFragment = new SavedItemsFragment();
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
@@ -106,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements CameraFragment.On
             // getItem is called to instantiate the fragment for the given page.
             switch (position) {
                 case 0:
-                    return new CameraFragment();
+                    return cameraFragment;
                 case 1:
                     return savedItemsFragment;
                 default:
