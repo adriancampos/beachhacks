@@ -55,12 +55,42 @@ public class MainActivity extends AppCompatActivity implements CameraFragment.On
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
+        updateActionBarHideStatus();
+
+//         Automatically hide the toolbar when on the first page
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                updateActionBarHideStatus();
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
 
         savedItemsFragment = new SavedItemsFragment();
         cameraFragment = new CameraFragment();
 
     }
 
+    private void updateActionBarHideStatus() {
+        switch (mViewPager.getCurrentItem()) {
+            case 0:
+                getSupportActionBar().hide();
+                break;
+            case 1:
+                getSupportActionBar().show();
+                break;
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
