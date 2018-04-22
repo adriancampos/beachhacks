@@ -71,9 +71,14 @@ public class MainActivity extends AppCompatActivity implements CameraFragment.On
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id) {
+            case R.id.action_settings:
+                return true;
+            case R.id.action_clear:
+                savedItemsFragment.clearItems();
+                return true;
         }
+
 
         return super.onOptionsItemSelected(item);
     }
