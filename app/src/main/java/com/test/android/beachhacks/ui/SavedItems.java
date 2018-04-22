@@ -69,7 +69,7 @@ public class SavedItems {
 
     private static int getRandomColor() {
         Random r = new Random();
-        return Color.valueOf(r.nextInt(255), r.nextInt(255), r.nextInt(255)).toArgb();
+        return Color.argb(255, r.nextInt(255), r.nextInt(255), r.nextInt(255));
     }
 
 }
