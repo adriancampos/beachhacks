@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import com.test.android.beachhacks.R;
 import com.test.android.beachhacks.ui.database.DatabaseHelper;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A fragment representing a list of Items.
@@ -54,10 +54,10 @@ public class SavedItemsFragment extends Fragment {
         }
 
         // Load items from database
-        databaseHelper = new DatabaseHelper();
+        databaseHelper = new DatabaseHelper(getActivity());
         databaseHelper.loadFromDBAsync(new DatabaseHelper.ItemsLoadedCallback() {
             @Override
-            public void onItemsLoaded(final ArrayList<SavedItem> items) {
+            public void onItemsLoaded(final List<SavedItem> items) {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
