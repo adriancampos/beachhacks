@@ -1,10 +1,13 @@
 package com.test.android.beachhacks.ui;
 
+import android.graphics.Color;
+import android.support.v7.graphics.Palette;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.test.android.beachhacks.R;
@@ -41,6 +44,11 @@ public class SavedItemRecyclerViewAdapter extends RecyclerView.Adapter<SavedItem
         holder.mImageView.setImageBitmap(mSavedItems.get(position).image);
         holder.mTextView.setText(mSavedItems.get(position).name);
 
+
+        // Set color of bar
+        Palette p = Palette.from(mSavedItems.get(position).image).generate(); // TODO Should NOT do this on the main thread or more than once
+        holder.mLinearLayout.setBackgroundColor(p.getDominantColor(Color.BLACK));
+
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,6 +70,7 @@ public class SavedItemRecyclerViewAdapter extends RecyclerView.Adapter<SavedItem
         public final View mView;
         public final ImageView mImageView;
         public final TextView mTextView;
+        public final LinearLayout mLinearLayout;
         public SavedItem mItem;
 
         public ViewHolder(View view) {
@@ -69,6 +78,7 @@ public class SavedItemRecyclerViewAdapter extends RecyclerView.Adapter<SavedItem
             mView = view;
             mImageView = view.findViewById(R.id.imageView);
             mTextView = view.findViewById(R.id.text);
+            mLinearLayout = view.findViewById(R.id.linearLayout);
         }
 
         @Override

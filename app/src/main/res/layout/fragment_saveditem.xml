@@ -10,6 +10,7 @@
     >
 
     <LinearLayout
+        android:id = "@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorAccent"
@@ -17,7 +18,8 @@
         android:orientation="vertical">
 
 
-        <ImageView
+        <com.test.android.beachhacks.ui.elements.SquareImageView
+            android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
