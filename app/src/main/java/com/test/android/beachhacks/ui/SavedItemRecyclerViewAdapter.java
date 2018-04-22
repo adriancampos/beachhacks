@@ -70,6 +70,10 @@ public class SavedItemRecyclerViewAdapter extends RecyclerView.Adapter<SavedItem
         notifyDataSetChanged();
     }
 
+    public void clearAll() {
+        mSavedItems.clear();
+        notifyDataSetChanged();
+    }
     @Override
     public int getItemCount() {
         return mSavedItems.size();

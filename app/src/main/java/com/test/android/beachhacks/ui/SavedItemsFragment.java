@@ -107,4 +107,9 @@ public class SavedItemsFragment extends Fragment {
     }
 
 
+    public void clearItems() {
+        recyclerViewAdapter.clearAll();
+
+        databaseHelper.clearDBAsync();
+    }
 }

@@ -48,4 +48,18 @@ public class DatabaseHelper {
         void onItemsLoaded(ArrayList<SavedItem> items);
     }
 
+
+    public void clearDB() {
+        // TODO
+    }
+
+    public void clearDBAsync() {
+        new Thread() {
+            @Override
+            public void run() {
+                clearDB();
+            }
+        }.start();
+    }
+
 }
