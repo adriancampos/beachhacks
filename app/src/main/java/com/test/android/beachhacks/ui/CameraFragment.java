@@ -39,6 +39,7 @@ public class CameraFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_camera, container, false);
         frameLayout = (FrameLayout) getView().findViewById(R.id.cameraView);
+        frameLayout = (FrameLayout) container.findViewById(R.id.cameraView);
 
         camera = Camera.open();
         showCamera = new ShowCamera(getActivity(), camera);
