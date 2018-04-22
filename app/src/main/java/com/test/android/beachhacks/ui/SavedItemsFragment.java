@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.test.android.beachhacks.R;
-import com.test.android.beachhacks.ui.SavedItems.SavedItem;
 
 /**
  * A fragment representing a list of Items.
