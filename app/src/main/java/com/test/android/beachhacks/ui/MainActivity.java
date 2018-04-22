@@ -88,7 +88,8 @@ public class MainActivity extends AppCompatActivity implements CameraFragment.On
 
     @Override
     public void onItemClick(SavedItem savedItem) {
-        // TODO
+        savedItemsFragment.addSavedItem(savedItem);
+        mViewPager.setCurrentItem(1, true);
     }
 
 

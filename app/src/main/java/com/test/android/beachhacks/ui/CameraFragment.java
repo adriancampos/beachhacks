@@ -43,6 +43,13 @@ public class CameraFragment extends Fragment {
         camera = Camera.open();
         showCamera = new ShowCamera(getActivity(), camera);
         frameLayout.addView(showCamera);
+        // Test code to add a randomly generated item to the saved items list
+        frameLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListener.onItemClick(DummySavedItemHelper.getRandomSavedItem());
+            }
+        });
         return v;
     }
 

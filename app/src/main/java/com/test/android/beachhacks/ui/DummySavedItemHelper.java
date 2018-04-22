@@ -15,33 +15,17 @@ import java.util.Random;
  * <p>
  * TODO: Replace all uses of this class before publishing your app.
  */
-public class SavedItems {
+public class DummySavedItemHelper {
 
     private final static String[] DUMMY_OBJECTNAMES = {"Cat", "Dog", "Person", "Animal"};
 
-    /**
-     * An array of sample (dummy) items.
-     */
-    public static final List<SavedItem> ITEMS = new ArrayList<SavedItem>();
 
-
-    private static final int COUNT = 50;
-
-    static {
-        // Add some sample items.
-        for (int i = 0; i < COUNT; i++) {
-            addItem(new SavedItem(getRandomBitmap(), DUMMY_OBJECTNAMES[i % DUMMY_OBJECTNAMES.length]));
-        }
+    public static SavedItem getRandomSavedItem() {
+        Random r = new Random();
+        return new SavedItem(getRandomBitmap(),DUMMY_OBJECTNAMES[r.nextInt(DUMMY_OBJECTNAMES.length)]);
     }
 
-    private static void addItem(SavedItem item) {
-        ITEMS.add(item);
-    }
-
-
-    // TODO Temporary method
     private static final int WIDTH = 1000;
-
     private static Bitmap getRandomBitmap() {
         Random r = new Random();
 
