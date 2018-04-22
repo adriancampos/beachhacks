@@ -57,8 +57,13 @@ public class SavedItemsFragment extends Fragment {
         databaseHelper = new DatabaseHelper();
         databaseHelper.loadFromDBAsync(new DatabaseHelper.ItemsLoadedCallback() {
             @Override
-            public void onItemsLoaded(ArrayList<SavedItem> items) {
-                recyclerViewAdapter.addItems(items);
+            public void onItemsLoaded(final ArrayList<SavedItem> items) {
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        recyclerViewAdapter.addItems(items);
+                    }
+                });
             }
         });
 
